@@ -1,0 +1,580 @@
+TimeQuest Timing Analyzer report for cheap_test
+Sat Jan 05 03:56:32 2013
+Quartus II Version 10.1 Build 153 11/29/2010 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'inst1|altpll_component|pll|clk[0]'
+ 12. Hold: 'inst1|altpll_component|pll|clk[0]'
+ 13. Minimum Pulse Width: 'inst1|altpll_component|pll|clk[0]'
+ 14. Minimum Pulse Width: 'CLK24M'
+ 15. Clock to Output Times
+ 16. Minimum Clock to Output Times
+ 17. Setup Transfers
+ 18. Hold Transfers
+ 19. Report TCCS
+ 20. Report RSKM
+ 21. Unconstrained Paths
+ 22. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                     ;
++--------------------+--------------------------------------------------+
+; Quartus II Version ; Version 10.1 Build 153 11/29/2010 SJ Web Edition ;
+; Revision Name      ; cheap_test                                       ;
+; Device Family      ; Cyclone                                          ;
+; Device Name        ; EP1C3T144C8                                      ;
+; Timing Models      ; Final                                            ;
+; Delay Model        ; Slow Model                                       ;
+; Rise/Fall Delays   ; Unavailable                                      ;
++--------------------+--------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                                                                                 ;
++-----------------------------------+-----------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+-------------------------------------+---------------------------------------+
+; Clock Name                        ; Type      ; Period ; Frequency ; Rise  ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source                              ; Targets                               ;
++-----------------------------------+-----------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+-------------------------------------+---------------------------------------+
+; CLK24M                            ; Base      ; 41.666 ; 24.0 MHz  ; 0.000 ; 20.833 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;                                     ; { CLK24M }                            ;
+; inst1|altpll_component|pll|clk[0] ; Generated ; 41.666 ; 24.0 MHz  ; 0.000 ; 20.833 ; 50.00      ; 1         ; 1           ;       ;        ;           ;            ; false    ; CLK24M ; inst1|altpll_component|pll|inclk[0] ; { inst1|altpll_component|pll|clk[0] } ;
++-----------------------------------+-----------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+-------------------------------------+---------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Fmax Summary                                                            ;
++------------+-----------------+-----------------------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name                        ; Note ;
++------------+-----------------+-----------------------------------+------+
+; 153.61 MHz ; 153.61 MHz      ; inst1|altpll_component|pll|clk[0] ;      ;
++------------+-----------------+-----------------------------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------------------------------+
+; Setup Summary                                              ;
++-----------------------------------+--------+---------------+
+; Clock                             ; Slack  ; End Point TNS ;
++-----------------------------------+--------+---------------+
+; inst1|altpll_component|pll|clk[0] ; 35.156 ; 0.000         ;
++-----------------------------------+--------+---------------+
+
+
++-----------------------------------------------------------+
+; Hold Summary                                              ;
++-----------------------------------+-------+---------------+
+; Clock                             ; Slack ; End Point TNS ;
++-----------------------------------+-------+---------------+
+; inst1|altpll_component|pll|clk[0] ; 1.321 ; 0.000         ;
++-----------------------------------+-------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++------------------------------------------------------------+
+; Minimum Pulse Width Summary                                ;
++-----------------------------------+--------+---------------+
+; Clock                             ; Slack  ; End Point TNS ;
++-----------------------------------+--------+---------------+
+; inst1|altpll_component|pll|clk[0] ; 19.015 ; 0.000         ;
+; CLK24M                            ; 20.833 ; 0.000         ;
++-----------------------------------+--------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'inst1|altpll_component|pll|clk[0]'                                                                                                                                                            ;
++--------+--------------------------------------+--------------------------------------+-----------------------------------+-----------------------------------+--------------+------------+------------+
+; Slack  ; From Node                            ; To Node                              ; Launch Clock                      ; Latch Clock                       ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------------+--------------------------------------+-----------------------------------+-----------------------------------+--------------+------------+------------+
+; 35.156 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[20] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.473      ;
+; 35.156 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[25] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.473      ;
+; 35.156 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[23] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.473      ;
+; 35.156 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[18] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.473      ;
+; 35.156 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[19] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.473      ;
+; 35.156 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[21] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.473      ;
+; 35.156 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[22] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.473      ;
+; 35.156 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[24] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.473      ;
+; 35.157 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[14] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.472      ;
+; 35.157 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[15] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.472      ;
+; 35.157 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[16] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.472      ;
+; 35.157 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[10] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.472      ;
+; 35.157 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[9]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.472      ;
+; 35.157 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[11] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.472      ;
+; 35.157 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[13] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.472      ;
+; 35.157 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[12] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.472      ;
+; 35.157 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[17] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.472      ;
+; 35.157 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[8]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.472      ;
+; 35.187 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[20] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.442      ;
+; 35.187 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[25] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.442      ;
+; 35.187 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[23] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.442      ;
+; 35.187 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[18] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.442      ;
+; 35.187 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[19] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.442      ;
+; 35.187 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[21] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.442      ;
+; 35.187 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[22] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.442      ;
+; 35.187 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[24] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.442      ;
+; 35.188 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[14] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.441      ;
+; 35.188 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[15] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.441      ;
+; 35.188 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[16] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.441      ;
+; 35.188 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[10] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.441      ;
+; 35.188 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[9]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.441      ;
+; 35.188 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[11] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.441      ;
+; 35.188 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[13] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.441      ;
+; 35.188 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[12] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.441      ;
+; 35.188 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[17] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.441      ;
+; 35.188 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[8]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.441      ;
+; 35.310 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[20] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.319      ;
+; 35.310 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[25] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.319      ;
+; 35.310 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[23] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.319      ;
+; 35.310 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[18] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.319      ;
+; 35.310 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[19] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.319      ;
+; 35.310 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[21] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.319      ;
+; 35.310 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[22] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.319      ;
+; 35.310 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[24] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.319      ;
+; 35.311 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[14] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.318      ;
+; 35.311 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[15] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.318      ;
+; 35.311 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[16] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.318      ;
+; 35.311 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[10] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.318      ;
+; 35.311 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[9]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.318      ;
+; 35.311 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[11] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.318      ;
+; 35.311 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[13] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.318      ;
+; 35.311 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[12] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.318      ;
+; 35.311 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[17] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.318      ;
+; 35.311 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[8]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.318      ;
+; 35.327 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[20] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.302      ;
+; 35.327 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[25] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.302      ;
+; 35.327 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[23] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.302      ;
+; 35.327 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[18] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.302      ;
+; 35.327 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[19] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.302      ;
+; 35.327 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[21] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.302      ;
+; 35.327 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[22] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.302      ;
+; 35.327 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[24] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.302      ;
+; 35.328 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[14] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.301      ;
+; 35.328 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[15] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.301      ;
+; 35.328 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[16] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.301      ;
+; 35.328 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[10] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.301      ;
+; 35.328 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[9]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.301      ;
+; 35.328 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[11] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.301      ;
+; 35.328 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[13] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.301      ;
+; 35.328 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[12] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.301      ;
+; 35.328 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[17] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.301      ;
+; 35.328 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[8]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.301      ;
+; 35.505 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[20] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.124      ;
+; 35.505 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[25] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.124      ;
+; 35.505 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[23] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.124      ;
+; 35.505 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[18] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.124      ;
+; 35.505 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[19] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.124      ;
+; 35.505 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[21] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.124      ;
+; 35.505 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[22] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.124      ;
+; 35.505 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[24] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.124      ;
+; 35.506 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[14] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.123      ;
+; 35.506 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[15] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.123      ;
+; 35.506 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[16] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.123      ;
+; 35.506 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[10] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.123      ;
+; 35.506 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[9]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.123      ;
+; 35.506 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[11] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.123      ;
+; 35.506 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[13] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.123      ;
+; 35.506 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[12] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.123      ;
+; 35.506 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[17] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.123      ;
+; 35.506 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[8]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.123      ;
+; 35.604 ; Clk_div_led:inst|\compteur:count[24] ; Clk_div_led:inst|\compteur:count[20] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.025      ;
+; 35.604 ; Clk_div_led:inst|\compteur:count[24] ; Clk_div_led:inst|\compteur:count[25] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.025      ;
+; 35.604 ; Clk_div_led:inst|\compteur:count[24] ; Clk_div_led:inst|\compteur:count[23] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.025      ;
+; 35.604 ; Clk_div_led:inst|\compteur:count[24] ; Clk_div_led:inst|\compteur:count[18] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.025      ;
+; 35.604 ; Clk_div_led:inst|\compteur:count[24] ; Clk_div_led:inst|\compteur:count[19] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.025      ;
+; 35.604 ; Clk_div_led:inst|\compteur:count[24] ; Clk_div_led:inst|\compteur:count[21] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.025      ;
+; 35.604 ; Clk_div_led:inst|\compteur:count[24] ; Clk_div_led:inst|\compteur:count[22] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.025      ;
+; 35.604 ; Clk_div_led:inst|\compteur:count[24] ; Clk_div_led:inst|\compteur:count[24] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.025      ;
+; 35.605 ; Clk_div_led:inst|\compteur:count[24] ; Clk_div_led:inst|\compteur:count[14] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.024      ;
+; 35.605 ; Clk_div_led:inst|\compteur:count[24] ; Clk_div_led:inst|\compteur:count[15] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 41.666       ; 0.000      ; 6.024      ;
++--------+--------------------------------------+--------------------------------------+-----------------------------------+-----------------------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'inst1|altpll_component|pll|clk[0]'                                                                                                                                                            ;
++-------+--------------------------------------+--------------------------------------+-----------------------------------+-----------------------------------+--------------+------------+------------+
+; Slack ; From Node                            ; To Node                              ; Launch Clock                      ; Latch Clock                       ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------------+--------------------------------------+-----------------------------------+-----------------------------------+--------------+------------+------------+
+; 1.321 ; Clk_div_led:inst|\compteur:count[3]  ; Clk_div_led:inst|\compteur:count[3]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.336      ;
+; 1.322 ; Clk_div_led:inst|\compteur:count[1]  ; Clk_div_led:inst|\compteur:count[1]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.337      ;
+; 1.323 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[16] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.338      ;
+; 1.323 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[12] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.338      ;
+; 1.323 ; Clk_div_led:inst|\compteur:count[6]  ; Clk_div_led:inst|\compteur:count[6]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.338      ;
+; 1.323 ; Clk_div_led:inst|\compteur:count[2]  ; Clk_div_led:inst|\compteur:count[2]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.338      ;
+; 1.326 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[13] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.341      ;
+; 1.326 ; Clk_div_led:inst|\compteur:count[8]  ; Clk_div_led:inst|\compteur:count[8]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.341      ;
+; 1.329 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[11] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.344      ;
+; 1.335 ; Clk_div_led:inst|\compteur:count[22] ; Clk_div_led:inst|\compteur:count[22] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.350      ;
+; 1.337 ; Clk_div_led:inst|\compteur:count[18] ; Clk_div_led:inst|\compteur:count[18] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.352      ;
+; 1.342 ; Clk_div_led:inst|\compteur:count[21] ; Clk_div_led:inst|\compteur:count[21] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.357      ;
+; 1.474 ; Clk_div_led:inst|\compteur:count[4]  ; Clk_div_led:inst|\compteur:count[4]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.489      ;
+; 1.476 ; Clk_div_led:inst|\compteur:count[14] ; Clk_div_led:inst|\compteur:count[14] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.491      ;
+; 1.476 ; Clk_div_led:inst|\compteur:count[9]  ; Clk_div_led:inst|\compteur:count[9]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.491      ;
+; 1.480 ; Clk_div_led:inst|\compteur:count[25] ; Clk_div_led:inst|\compteur:count[25] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.495      ;
+; 1.480 ; Clk_div_led:inst|\compteur:count[10] ; Clk_div_led:inst|\compteur:count[10] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.495      ;
+; 1.480 ; Clk_div_led:inst|\compteur:count[24] ; Clk_div_led:inst|\compteur:count[24] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.495      ;
+; 1.480 ; Clk_div_led:inst|\compteur:count[0]  ; Clk_div_led:inst|\compteur:count[0]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.495      ;
+; 1.481 ; Clk_div_led:inst|\compteur:count[15] ; Clk_div_led:inst|\compteur:count[15] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.496      ;
+; 1.481 ; Clk_div_led:inst|\compteur:count[5]  ; Clk_div_led:inst|\compteur:count[5]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.496      ;
+; 1.482 ; Clk_div_led:inst|\compteur:count[17] ; Clk_div_led:inst|\compteur:count[17] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.497      ;
+; 1.482 ; Clk_div_led:inst|\compteur:count[7]  ; Clk_div_led:inst|\compteur:count[7]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.497      ;
+; 1.488 ; Clk_div_led:inst|\compteur:count[20] ; Clk_div_led:inst|\compteur:count[20] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.503      ;
+; 1.488 ; Clk_div_led:inst|\compteur:count[19] ; Clk_div_led:inst|\compteur:count[19] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.503      ;
+; 1.728 ; Clk_div_led:inst|\compteur:count[23] ; Clk_div_led:inst|\compteur:count[23] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.743      ;
+; 1.920 ; Clk_div_led:inst|\compteur:count[3]  ; Clk_div_led:inst|\compteur:count[4]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.935      ;
+; 1.921 ; Clk_div_led:inst|\compteur:count[1]  ; Clk_div_led:inst|\compteur:count[2]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.936      ;
+; 1.922 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[17] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.937      ;
+; 1.922 ; Clk_div_led:inst|\compteur:count[6]  ; Clk_div_led:inst|\compteur:count[7]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.937      ;
+; 1.925 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[14] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.940      ;
+; 1.925 ; Clk_div_led:inst|\compteur:count[8]  ; Clk_div_led:inst|\compteur:count[9]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.940      ;
+; 1.928 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[12] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.943      ;
+; 1.936 ; Clk_div_led:inst|\compteur:count[18] ; Clk_div_led:inst|\compteur:count[19] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.951      ;
+; 1.941 ; Clk_div_led:inst|\compteur:count[21] ; Clk_div_led:inst|\compteur:count[22] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 1.956      ;
+; 1.998 ; Clk_div_led:inst|\compteur:count[3]  ; Clk_div_led:inst|\compteur:count[5]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.013      ;
+; 2.003 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[15] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.018      ;
+; 2.003 ; Clk_div_led:inst|\compteur:count[8]  ; Clk_div_led:inst|\compteur:count[10] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.018      ;
+; 2.014 ; Clk_div_led:inst|\compteur:count[18] ; Clk_div_led:inst|\compteur:count[20] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.029      ;
+; 2.076 ; Clk_div_led:inst|\compteur:count[3]  ; Clk_div_led:inst|\compteur:count[6]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.091      ;
+; 2.081 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[16] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.096      ;
+; 2.081 ; Clk_div_led:inst|\compteur:count[8]  ; Clk_div_led:inst|\compteur:count[11] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.096      ;
+; 2.083 ; Clk_div_led:inst|\compteur:count[4]  ; Clk_div_led:inst|\compteur:count[5]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.098      ;
+; 2.085 ; Clk_div_led:inst|\compteur:count[14] ; Clk_div_led:inst|\compteur:count[15] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.100      ;
+; 2.085 ; Clk_div_led:inst|\compteur:count[9]  ; Clk_div_led:inst|\compteur:count[10] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.100      ;
+; 2.089 ; Clk_div_led:inst|\compteur:count[24] ; Clk_div_led:inst|\compteur:count[25] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.104      ;
+; 2.089 ; Clk_div_led:inst|\compteur:count[0]  ; Clk_div_led:inst|\compteur:count[1]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.104      ;
+; 2.089 ; Clk_div_led:inst|\compteur:count[10] ; Clk_div_led:inst|\compteur:count[11] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.104      ;
+; 2.090 ; Clk_div_led:inst|\compteur:count[5]  ; Clk_div_led:inst|\compteur:count[6]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.105      ;
+; 2.090 ; Clk_div_led:inst|\compteur:count[15] ; Clk_div_led:inst|\compteur:count[16] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.105      ;
+; 2.092 ; Clk_div_led:inst|\compteur:count[18] ; Clk_div_led:inst|\compteur:count[21] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.107      ;
+; 2.097 ; Clk_div_led:inst|\compteur:count[19] ; Clk_div_led:inst|\compteur:count[20] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.112      ;
+; 2.097 ; Clk_div_led:inst|\compteur:count[20] ; Clk_div_led:inst|\compteur:count[21] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.112      ;
+; 2.138 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[14] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.153      ;
+; 2.138 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[15] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.153      ;
+; 2.138 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[16] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.153      ;
+; 2.138 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[13] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.153      ;
+; 2.138 ; Clk_div_led:inst|\compteur:count[12] ; Clk_div_led:inst|\compteur:count[17] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.153      ;
+; 2.138 ; Clk_div_led:inst|\compteur:count[2]  ; Clk_div_led:inst|\compteur:count[7]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.153      ;
+; 2.138 ; Clk_div_led:inst|\compteur:count[2]  ; Clk_div_led:inst|\compteur:count[6]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.153      ;
+; 2.138 ; Clk_div_led:inst|\compteur:count[2]  ; Clk_div_led:inst|\compteur:count[5]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.153      ;
+; 2.138 ; Clk_div_led:inst|\compteur:count[2]  ; Clk_div_led:inst|\compteur:count[4]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.153      ;
+; 2.138 ; Clk_div_led:inst|\compteur:count[2]  ; Clk_div_led:inst|\compteur:count[3]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.153      ;
+; 2.143 ; Clk_div_led:inst|\compteur:count[1]  ; Clk_div_led:inst|\compteur:count[7]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.158      ;
+; 2.143 ; Clk_div_led:inst|\compteur:count[1]  ; Clk_div_led:inst|\compteur:count[6]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.158      ;
+; 2.143 ; Clk_div_led:inst|\compteur:count[1]  ; Clk_div_led:inst|\compteur:count[5]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.158      ;
+; 2.143 ; Clk_div_led:inst|\compteur:count[1]  ; Clk_div_led:inst|\compteur:count[4]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.158      ;
+; 2.143 ; Clk_div_led:inst|\compteur:count[1]  ; Clk_div_led:inst|\compteur:count[3]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.158      ;
+; 2.150 ; Clk_div_led:inst|\compteur:count[22] ; Clk_div_led:inst|\compteur:count[25] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150 ; Clk_div_led:inst|\compteur:count[22] ; Clk_div_led:inst|\compteur:count[23] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150 ; Clk_div_led:inst|\compteur:count[22] ; Clk_div_led:inst|\compteur:count[24] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[14] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[15] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[16] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[13] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150 ; Clk_div_led:inst|\compteur:count[11] ; Clk_div_led:inst|\compteur:count[17] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.165      ;
+; 2.154 ; Clk_div_led:inst|\compteur:count[3]  ; Clk_div_led:inst|\compteur:count[7]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.169      ;
+; 2.159 ; Clk_div_led:inst|\compteur:count[13] ; Clk_div_led:inst|\compteur:count[17] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.174      ;
+; 2.159 ; Clk_div_led:inst|\compteur:count[8]  ; Clk_div_led:inst|\compteur:count[12] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.174      ;
+; 2.161 ; Clk_div_led:inst|\compteur:count[4]  ; Clk_div_led:inst|\compteur:count[6]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.176      ;
+; 2.163 ; Clk_div_led:inst|\compteur:count[14] ; Clk_div_led:inst|\compteur:count[16] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.178      ;
+; 2.163 ; Clk_div_led:inst|\compteur:count[9]  ; Clk_div_led:inst|\compteur:count[11] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.178      ;
+; 2.163 ; Clk_div_led:inst|\compteur:count[21] ; Clk_div_led:inst|\compteur:count[25] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.178      ;
+; 2.163 ; Clk_div_led:inst|\compteur:count[21] ; Clk_div_led:inst|\compteur:count[23] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.178      ;
+; 2.163 ; Clk_div_led:inst|\compteur:count[21] ; Clk_div_led:inst|\compteur:count[24] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.178      ;
+; 2.167 ; Clk_div_led:inst|\compteur:count[0]  ; Clk_div_led:inst|\compteur:count[2]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.182      ;
+; 2.167 ; Clk_div_led:inst|\compteur:count[10] ; Clk_div_led:inst|\compteur:count[12] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.182      ;
+; 2.168 ; Clk_div_led:inst|\compteur:count[5]  ; Clk_div_led:inst|\compteur:count[7]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.183      ;
+; 2.168 ; Clk_div_led:inst|\compteur:count[15] ; Clk_div_led:inst|\compteur:count[17] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.183      ;
+; 2.170 ; Clk_div_led:inst|\compteur:count[18] ; Clk_div_led:inst|\compteur:count[22] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.185      ;
+; 2.175 ; Clk_div_led:inst|\compteur:count[19] ; Clk_div_led:inst|\compteur:count[21] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.190      ;
+; 2.175 ; Clk_div_led:inst|\compteur:count[20] ; Clk_div_led:inst|\compteur:count[22] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.190      ;
+; 2.239 ; Clk_div_led:inst|\compteur:count[4]  ; Clk_div_led:inst|\compteur:count[7]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.254      ;
+; 2.241 ; Clk_div_led:inst|\compteur:count[14] ; Clk_div_led:inst|\compteur:count[17] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.256      ;
+; 2.241 ; Clk_div_led:inst|\compteur:count[9]  ; Clk_div_led:inst|\compteur:count[12] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.256      ;
+; 2.253 ; Clk_div_led:inst|\compteur:count[19] ; Clk_div_led:inst|\compteur:count[22] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.268      ;
+; 2.304 ; Clk_div_led:inst|\compteur:count[16] ; Clk_div_led:inst|\compteur:count[20] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.319      ;
+; 2.304 ; Clk_div_led:inst|\compteur:count[6]  ; Clk_div_led:inst|\compteur:count[10] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.319      ;
+; 2.304 ; Clk_div_led:inst|\compteur:count[6]  ; Clk_div_led:inst|\compteur:count[9]  ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.319      ;
+; 2.304 ; Clk_div_led:inst|\compteur:count[6]  ; Clk_div_led:inst|\compteur:count[11] ; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 0.000        ; 0.000      ; 2.319      ;
++-------+--------------------------------------+--------------------------------------+-----------------------------------+-----------------------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'inst1|altpll_component|pll|clk[0]'                                                                                          ;
++--------+--------------+----------------+------------------+-----------------------------------+------------+--------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock                             ; Clock Edge ; Target                               ;
++--------+--------------+----------------+------------------+-----------------------------------+------------+--------------------------------------+
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[0]  ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[0]  ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[10] ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[10] ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[11] ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[11] ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[12] ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[12] ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[13] ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[13] ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[14] ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[14] ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[15] ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[15] ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[16] ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[16] ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[17] ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[17] ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[18] ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[18] ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[19] ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[19] ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[1]  ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[1]  ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[20] ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[20] ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[21] ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[21] ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[22] ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[22] ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[23] ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[23] ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[24] ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[24] ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[25] ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[25] ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[2]  ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[2]  ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[3]  ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[3]  ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[4]  ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[4]  ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[5]  ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[5]  ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[6]  ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[6]  ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[7]  ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[7]  ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[8]  ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[8]  ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[9]  ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|\compteur:count[9]  ;
+; 19.015 ; 20.833       ; 1.818          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|led_anode           ;
+; 19.015 ; 20.833       ; 1.818          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; Clk_div_led:inst|led_anode           ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[0]|clk          ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[0]|clk          ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[10]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[10]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[11]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[11]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[12]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[12]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[13]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[13]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[14]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[14]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[15]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[15]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[16]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[16]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[17]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[17]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[18]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[18]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[19]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[19]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[1]|clk          ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[1]|clk          ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[20]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[20]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[21]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[21]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[22]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[22]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[23]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[23]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[24]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[24]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[25]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[25]|clk         ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[2]|clk          ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[2]|clk          ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[3]|clk          ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[3]|clk          ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[4]|clk          ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[4]|clk          ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[5]|clk          ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[5]|clk          ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[6]|clk          ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; inst1|altpll_component|pll|clk[0] ; Rise       ; inst|\compteur:count[6]|clk          ;
++--------+--------------+----------------+------------------+-----------------------------------+------------+--------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'CLK24M'                                                                                         ;
++--------+--------------+----------------+------------------+--------+------------+-------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock  ; Clock Edge ; Target                              ;
++--------+--------------+----------------+------------------+--------+------------+-------------------------------------+
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; CLK24M ; Rise       ; CLK24M|combout                      ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; CLK24M ; Rise       ; CLK24M|combout                      ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; CLK24M ; Rise       ; inst1|altpll_component|pll|clk[0]   ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; CLK24M ; Rise       ; inst1|altpll_component|pll|clk[0]   ;
+; 20.833 ; 20.833       ; 0.000          ; High Pulse Width ; CLK24M ; Rise       ; inst1|altpll_component|pll|inclk[0] ;
+; 20.833 ; 20.833       ; 0.000          ; Low Pulse Width  ; CLK24M ; Rise       ; inst1|altpll_component|pll|inclk[0] ;
+; 39.083 ; 41.666       ; 2.583          ; Port Rate        ; CLK24M ; Rise       ; CLK24M                              ;
++--------+--------------+----------------+------------------+--------+------------+-------------------------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                   ;
++-----------+------------+-------+-------+------------+-----------------------------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference                   ;
++-----------+------------+-------+-------+------------+-----------------------------------+
+; IO_D40    ; CLK24M     ; 5.130 ; 5.130 ; Rise       ; inst1|altpll_component|pll|clk[0] ;
++-----------+------------+-------+-------+------------+-----------------------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------------------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference                   ;
++-----------+------------+-------+-------+------------+-----------------------------------+
+; IO_D40    ; CLK24M     ; 5.130 ; 5.130 ; Rise       ; inst1|altpll_component|pll|clk[0] ;
++-----------+------------+-------+-------+------------+-----------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                                   ;
++-----------------------------------+-----------------------------------+----------+----------+----------+----------+
+; From Clock                        ; To Clock                          ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-----------------------------------+-----------------------------------+----------+----------+----------+----------+
+; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 1119     ; 0        ; 0        ; 0        ;
++-----------------------------------+-----------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                                    ;
++-----------------------------------+-----------------------------------+----------+----------+----------+----------+
+; From Clock                        ; To Clock                          ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-----------------------------------+-----------------------------------+----------+----------+----------+----------+
+; inst1|altpll_component|pll|clk[0] ; inst1|altpll_component|pll|clk[0] ; 1119     ; 0        ; 0        ; 0        ;
++-----------------------------------+-----------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 0     ; 0    ;
+; Unconstrained Input Port Paths  ; 0     ; 0    ;
+; Unconstrained Output Ports      ; 1     ; 1    ;
+; Unconstrained Output Port Paths ; 1     ; 1    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II TimeQuest Timing Analyzer
+    Info: Version 10.1 Build 153 11/29/2010 SJ Web Edition
+    Info: Processing started: Sat Jan 05 03:56:32 2013
+Info: Command: quartus_sta cheap_test -c cheap_test
+Info: qsta_default_script.tcl version: #1
+Critical Warning: Synopsys Design Constraints File file not found: 'cheap_test.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info: No user constrained generated clocks found in the design. Calling "derive_pll_clocks -create_base_clocks"
+Info: Deriving PLL Clocks
+    Info: create_clock -period 41.666 -waveform {0.000 20.833} -name CLK24M CLK24M
+    Info: create_generated_clock -source {inst1|altpll_component|pll|inclk[0]} -duty_cycle 50.00 -name {inst1|altpll_component|pll|clk[0]} {inst1|altpll_component|pll|clk[0]}
+Info: No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info: The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
+Info: Worst-case setup slack is 35.156
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    35.156         0.000 inst1|altpll_component|pll|clk[0] 
+Info: Worst-case hold slack is 1.321
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     1.321         0.000 inst1|altpll_component|pll|clk[0] 
+Info: No Recovery paths to report
+Info: No Removal paths to report
+Info: Worst-case minimum pulse width slack is 19.015
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    19.015         0.000 inst1|altpll_component|pll|clk[0] 
+    Info:    20.833         0.000 CLK24M 
+Info: The selected device family is not supported by the report_metastability command.
+Info: Design is not fully constrained for setup requirements
+Info: Design is not fully constrained for hold requirements
+Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 235 megabytes
+    Info: Processing ended: Sat Jan 05 03:56:32 2013
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+
